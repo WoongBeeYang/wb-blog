@@ -1,12 +1,14 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {  
-  purge: ['./pages/**/*.js', './components/**/*.js'],  
-  darkMode: false, // or 'media' or 'class'  
-  theme: {      
-    extend: {},  
-  },  
-  variants: {      
-    extend: {},  
-  },  
+module.exports = {
+  mode: 'jit',
+  content: [
+    "./pages/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx}",
+  ],
+  darkMode:'class', //다크모드 활성화
+  theme: {
+    extend: {},
+  },
+  
   plugins: [],
 }
