@@ -1,53 +1,43 @@
 import Image from "next/image";
 import Logo from "../image/Logo.png";
 import Link from "next/link";
+import DarkModeToggle from "./DarkModeToggle";
 
 export default function Header() {
   return (
     <>
       <header className="text-gray-600 body-font">
         <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-          <a className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
-            <Image
-              className="w-10 h-10 rounded-full"
-              src={Logo}
-              alt="WB-logo"
-            />
-            <span className="ml-3 text-xl">웅비의 블로그</span>
-          </a>
+          <Link href="/">
+            <a className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+              <Image
+                className="w-10 h-10 rounded-full"
+                src={Logo}
+                alt="WB-logo"
+              />
+              <span className="ml-3 text-xl dark:text-gray-300">웅비의 블로그</span>
+            </a>
+          </Link>
 
           <nav className="md:ml-auto flex flex-wrap items-center text-base justify-center">
             <Link href="/">
-              <a className="mr-5 hover:text-gray-900">홈</a>
+              <a className="mr-5 hover:text-gray-900 dark:text-gray-300 dark:hover:text-red-600">홈</a>
             </Link>
-            
+
             <Link href="/introduce">
-              <a className="mr-5 hover:text-gray-900">자기소개</a>
+              <a className="mr-5 hover:text-gray-900 dark:text-gray-300 dark:hover:text-red-600">자기소개</a>
             </Link>
 
             <Link href="/list">
-              <a className="mr-5 hover:text-gray-900">필기</a>
+              <a className="mr-5 hover:text-gray-900 dark:text-gray-300 dark:hover:text-red-600">필기</a>
             </Link>
 
             <Link href="/portfolio">
-              <a className="mr-5 hover:text-gray-900">포트폴리오</a>
+              <a className="mr-5 hover:text-gray-900 dark:text-gray-300 dark:hover:text-red-600">포트폴리오</a>
             </Link>
-
           </nav>
-          <button className="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">
-            Button
-            <svg
-              fill="none"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              className="w-4 h-4 ml-1"
-              viewBox="0 0 24 24"
-            >
-              <path d="M5 12h14M12 5l7 7-7 7"></path>
-            </svg>
-          </button>
+          {/* 다크모드 토글버튼 작업 넣기 */}
+          <DarkModeToggle/>
         </div>
       </header>
     </>

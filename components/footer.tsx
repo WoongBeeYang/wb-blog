@@ -3,7 +3,7 @@ import Logo from "../image/Logo.png";
 
 export default function Footer() {
   return (
-    <>
+    <div className="bottom-0 absolute w-full">
       <footer className="text-gray-600 body-font">
         <div className="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
           <a className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
@@ -12,7 +12,7 @@ export default function Footer() {
               src={Logo}
               alt="WB-logo"
             />
-            <span className="ml-3 text-xl">웅비의 블로그</span>
+            <span className="ml-3 text-xl dark:text-gray-300">웅비의 블로그</span>
           </a>
           <p className="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">
             © 2022 WoongBee —
@@ -32,9 +32,9 @@ export default function Footer() {
             >
               <svg
                 fill="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
                 className="w-5 h-5"
                 viewBox="0 0 24 24"
               >
@@ -48,9 +48,9 @@ export default function Footer() {
               <svg
                 fill="none"
                 stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
                 className="w-5 h-5"
                 viewBox="0 0 24 24"
               >
@@ -61,6 +61,6 @@ export default function Footer() {
           </span>
         </div>
       </footer>
-    </>
+    </div>
   );
 }

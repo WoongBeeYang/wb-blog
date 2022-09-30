@@ -2,3 +2,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+p {
+  @apply text-slate-500 dark:text-slate-400
+}
+
+header{
+  @apply bg-gray-200/50 dark:bg-gray-600/50
+}
+
+footer{
+  @apply bg-gray-200/50 dark:bg-gray-600/50
+}
