@@ -10,20 +10,19 @@ export default function ListsItem({ data }) {
   const tag = notion.properties.태그.multi_select;
 
   return (
-    <div className="flex flex-col dark:bg-slate-400 p-3 bg-blue-300 mt-3 rounded-md">
+    <div className="flex flex-col dark:bg-slate-400 p-3 bg-gray-300 mt-3 rounded-md hover:scale-105">
       <Image
         width="500px"
-        height="500px"
+        height="700px"
         src={notion_cover_img}
         alt="Cover Image"
-        layout="responsive"
       />
       <span className="text-xl">{listTitle}</span>
       <span>생성 시간 : {created_time[0]}</span>
       <span>최종 수정 시간 : {last_edited_time[0]}</span>
       <div className="flex items-start mt-2">
         {tag.map((tags) => (
-          <span key={tags.id} className="px-2 py-1 mr-2 rounded-md bg-sky-200">
+          <span key={tags.id} className="px-2 py-1 mr-2 rounded-md bg-sky-400">
             {tags.name}
           </span>
         ))}

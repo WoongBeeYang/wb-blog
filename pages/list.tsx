@@ -13,7 +13,7 @@ export default function List({notion}){
         <title>필기 내용</title>
         <meta name="description" content="웅비의 블로그" />
       </Head>
-      <p className="text-4xl text-center my-5 text-white">필기 내용</p>
+      <p className="text-4xl text-center my-5 font-bold text-black dark:text-white">필기 내용</p>
       <div className="grid xl:grid-cols-2 grid-cols-1 w-3/4 mx-auto gap-5">
         {data.results.map((notion: GetlistResult) => (
           <ListsItem data={notion} key={notion.id}/>
