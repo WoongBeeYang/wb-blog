@@ -27,11 +27,12 @@ export interface Time {
 
 export interface Cover {
   type : string
-  external : External
+  external? : External | null
+  file? : External
 }
 
 export interface External {
-  url : string
+  url? : string | null
 }
 
 export interface Parent {
@@ -53,7 +54,7 @@ export interface Tag {
 
 export interface Multi_select {
   id : string
-  name : string 
+  name : string
   color : string
 }
 
