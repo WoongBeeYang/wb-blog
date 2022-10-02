@@ -3,7 +3,7 @@ import Logo from "../image/Logo.png";
 
 export default function Footer() {
   return (
-    <div className="bottom-0 absolute w-full">
+    <div className="mt-10 w-full">
       <footer className="text-gray-600 body-font">
         <div className="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
           <a className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">

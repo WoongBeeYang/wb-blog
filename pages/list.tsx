@@ -1,6 +1,8 @@
 import Layout from "../components/layout";
 import Head from "next/head";
 import { TOKEN,DATABASE_ID } from "../config";
+import ListsItem from "../components/lists/lists-item";
+
 
 export default function List({notion}){
   return(
@@ -9,11 +11,9 @@ export default function List({notion}){
         <title>필기 내용</title>
         <meta name="description" content="웅비의 블로그" />
       </Head>
-      <div>
-        <h1 className="float-right mr-3 mt-3">총 글수 : {notion.results.length}</h1>
-
+      <div className="grid grid-cols-2 w-3/4 mx-auto gap-5">
         {notion.results.map((notion) => (
-          <p>{notion.properties.이름.title[0].plain_text}</p>
+          <ListsItem data={notion} key={notion.id}/>
         ))}
 
       </div>
@@ -32,7 +32,13 @@ export async function getStaticProps() {
       'content-type': 'application/json',
       Authorization: `Bearer ${TOKEN}`
     }, 
-    body: JSON.stringify({page_size: 100})
+    body: JSON.stringify({
+      sorts:[
+        {
+          "property": "이름",
+          "direction": "descending"
+        }
+      ],page_size: 100})
   };
   
   const res = await fetch(`https://api.notion.com/v1/databases/${DATABASE_ID}/query`, options)
