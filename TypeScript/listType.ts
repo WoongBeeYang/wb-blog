@@ -40,7 +40,7 @@ export interface Parent {
 }
 
 export interface Properties {
-  Tag : Tag
+  태그 : Tag
   Status : Status
   이름 : Properties_Name
 }
@@ -49,11 +49,11 @@ export interface Tag {
   id : string
   type : string
   multi_select : Multi_select[]
-}
+ }
 
 export interface Multi_select {
-  id: string
-  name : string
+  id : string
+  name : string 
   color : string
 }
 

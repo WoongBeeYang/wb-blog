@@ -2,10 +2,11 @@ import Layout from "../components/layout";
 import Head from "next/head";
 import { TOKEN,DATABASE_ID } from "../config";
 import ListsItem from "../components/lists/lists-item";
-import { Getlist } from "../TypeScript/listType";
+import { Getlist, GetlistResult } from "../TypeScript/listType";
 
 
-const List = (notion: Getlist) => {
+export default function List({notion}){
+  const data: Getlist = notion
   return(
     <Layout>
       <Head>
@@ -13,7 +14,7 @@ const List = (notion: Getlist) => {
         <meta name="description" content="웅비의 블로그" />
       </Head>
       <div className="grid grid-cols-2 w-3/4 mx-auto gap-5">
-        {notion.results.map((notion) => (
+        {data.results.map((notion: GetlistResult) => (
           <ListsItem data={notion} key={notion.id}/>
         ))}
 
@@ -22,7 +23,6 @@ const List = (notion: Getlist) => {
   );
 }
 
-export default List;
 
 //빌드 시간에 호출(딱 한번)
 export async function getStaticProps() {
