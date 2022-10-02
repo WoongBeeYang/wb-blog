@@ -13,7 +13,8 @@ export default function List({notion}){
         <title>필기 내용</title>
         <meta name="description" content="웅비의 블로그" />
       </Head>
-      <div className="grid grid-cols-2 w-3/4 mx-auto gap-5">
+      <p className="text-4xl text-center my-5 text-white">필기 내용</p>
+      <div className="grid xl:grid-cols-2 grid-cols-1 w-3/4 mx-auto gap-5">
         {data.results.map((notion: GetlistResult) => (
           <ListsItem data={notion} key={notion.id}/>
         ))}
@@ -47,11 +48,6 @@ export async function getStaticProps() {
   const res = await fetch(`https://api.notion.com/v1/databases/${DATABASE_ID}/query`, options)
   
   const notion:Getlist = await res.json()
-  
-  const projectIds = notion.results.map((notion) => (
-    notion.properties.이름.title[0].plain_text
-  ))
-
   
   return {
     props: {notion},
