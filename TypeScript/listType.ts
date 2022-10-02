@@ -1,8 +1,93 @@
 export interface Getlist {
-  object : GetlistObject
-  result : GetlistResult
+  object : string
+  results : GetlistResult[]
+  next_cursor : string | null
+  has_more : boolean | null
+  type : string
 }
 
-export interface GetlistObject {
-  
+export interface GetlistResult {
+  object : string
+  id : string
+  created_time : string
+  last_edited_time: string
+  created_by : Time
+  last_edited_by : Time
+  cover : Cover
+  icon : string
+  parent : Parent
+  archived : boolean
+  properties : Properties
+}
+
+export interface Time {
+  object : string
+  id :  string
+}
+
+export interface Cover {
+  type : string
+  external : External
+}
+
+export interface External {
+  url : string
+}
+
+export interface Parent {
+  type : string
+  database_id : string
+}
+
+export interface Properties {
+  Tag : Tag
+  Status : Status
+  이름 : Properties_Name
+}
+
+export interface Tag {
+  id : string
+  type : string
+  multi_select : Multi_select[]
+}
+
+export interface Multi_select {
+  id: string
+  name : string
+  color : string
+}
+
+export interface Status {
+  id: string
+  name : string
+  color : string
+}
+
+export interface Properties_Name {
+  id: string
+  type : string
+  title : Properties_Name_Title[]
+}
+
+export interface Properties_Name_Title {
+  type : string
+  text : Properties_Name_Title_Text
+  annotations : Properties_Name_Title_Annotations
+  plain_text : string
+  href : string | null
+}
+
+
+export interface Properties_Name_Title_Text {
+  content : string
+  link : string | null
+}
+
+export interface Properties_Name_Title_Annotations {
+  bold : boolean
+  italic : boolean
+  strikethrough : boolean
+  underline : boolean
+  code : boolean
+  color : string
 }

@@ -2,9 +2,10 @@ import Layout from "../components/layout";
 import Head from "next/head";
 import { TOKEN,DATABASE_ID } from "../config";
 import ListsItem from "../components/lists/lists-item";
+import { Getlist } from "../TypeScript/listType";
 
 
-export default function List({notion}){
+const List = (notion: Getlist) => {
   return(
     <Layout>
       <Head>
@@ -20,6 +21,8 @@ export default function List({notion}){
     </Layout>
   );
 }
+
+export default List;
 
 //빌드 시간에 호출(딱 한번)
 export async function getStaticProps() {
@@ -43,7 +46,7 @@ export async function getStaticProps() {
   
   const res = await fetch(`https://api.notion.com/v1/databases/${DATABASE_ID}/query`, options)
   
-  const notion = await res.json()
+  const notion:Getlist = await res.json()
   
   const projectIds = notion.results.map((notion) => (
     notion.properties.이름.title[0].plain_text

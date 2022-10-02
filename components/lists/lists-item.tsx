@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { GetlistResult } from "../../TypeScript/listType"; 
 
 export default function ListsItem({ data }) {
   const listTitle = data.properties.이름.title[0].plain_text;
