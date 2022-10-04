@@ -9,6 +9,7 @@ export default function ListsItem({ data }) {
   const notion_cover_img = notion.cover.file?.url || notion.cover.external.url;
   const tag = notion.properties.태그.multi_select;
 
+  console.log(notion)
   return (
     <div className="flex flex-col dark:bg-slate-400 p-3 bg-gray-300 mt-3 rounded-md hover:scale-105">
       <Image
