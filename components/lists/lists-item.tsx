@@ -26,7 +26,7 @@ export default function ListsItem({ data, page_data }) {
   return (
     <div onClick={loadModal}>
       {modal === true ? <Modal listTitle={listTitle} emoji={emoji} url={url}/> : ""}
-      <div className="flex flex-col dark:bg-blue-300/95 p-3 bg-[#9F814F] mt-3 rounded-md hover:scale-105 h-full shadow-xl">
+      <div className="flex flex-col dark:bg-[#121212] p-3 bg-[#9F814F] mt-3 rounded-md hover:scale-105 h-full shadow-xl">
         <Image
           width="500px"
           height="700px"
