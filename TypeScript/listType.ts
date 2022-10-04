@@ -18,6 +18,7 @@ export interface GetlistResult {
   parent : Parent
   archived : boolean
   properties : Properties
+  url : string
 }
 
 export interface Time {

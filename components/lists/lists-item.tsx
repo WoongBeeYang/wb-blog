@@ -1,9 +1,10 @@
 import Image from "next/image";
 import { useState } from "react";
+import { TOKEN } from "../../config";
 import { GetlistResult } from "../../TypeScript/listType";
 import Modal from "../modal";
 
-export default function ListsItem({ data }) {
+export default function ListsItem({ data, page_data }) {
   const notion: GetlistResult = data;
   const listTitle = notion.properties.이름.title[0]?.plain_text || "제목 없음";
   const created_time = notion.created_time.split("T");
@@ -11,6 +12,9 @@ export default function ListsItem({ data }) {
   const notion_cover_img = notion.cover.file?.url || notion.cover.external.url;
   const tag = notion.properties.태그.multi_select;
   const emoji = notion.icon?.emoji
+  const url = notion.url
+
+  console.log(page_data)
   console.log(emoji)
 
   const [modal, setModal] = useState(false);
@@ -21,8 +25,8 @@ export default function ListsItem({ data }) {
 
   return (
     <div onClick={loadModal}>
-      {modal === true ? <Modal listTitle={listTitle} emoji={emoji}/> : ""}
-      <div className="flex flex-col dark:bg-slate-400 p-3 bg-gray-300 mt-3 rounded-md hover:scale-105 h-full">
+      {modal === true ? <Modal listTitle={listTitle} emoji={emoji} url={url}/> : ""}
+      <div className="flex flex-col dark:bg-blue-300/95 p-3 bg-[#9F814F] mt-3 rounded-md hover:scale-105 h-full shadow-xl">
         <Image
           width="500px"
           height="700px"
@@ -45,4 +49,27 @@ export default function ListsItem({ data }) {
       </div>
     </div>
   );
+}
+export async function getStaticProps({url}) {
+  console.log(url)
+  const options = {
+    method: "GET",
+    headers: {
+      accept: "application/json",
+      "Notion-Version": "2022-06-28",
+      "content-type": "application/json",
+      Authorization: `Bearer ${TOKEN}`,
+    },
+  };
+
+  const res = await fetch(
+    `https://api.notion.com/v1/blocks/${url}/children?page_size=100`,
+    options
+  )
+  const page_data = await res.json();
+  console.log(page_data)
+
+  return {
+    props:{page_data},
+  }
 }

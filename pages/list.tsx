@@ -19,7 +19,7 @@ export default function List({ notion }) {
 
       <div className="grid xl:grid-cols-2 grid-cols-1 w-3/4 mx-auto gap-5">
         {data.results.map((notion: GetlistResult) => (
-          <ListsItem data={notion} key={notion.id} />
+          <ListsItem data={notion} key={notion.id} page_data={undefined} />
         ))}
       </div>
     </Layout>

@@ -1,5 +1,8 @@
-export default function Modal({ listTitle, emoji }) {
-  console.log(emoji);
+import { TOKEN } from "../config";
+
+export default function Modal({ listTitle, emoji, url}) {
+  
+  
   return (
     <>
       <div
@@ -18,9 +21,18 @@ export default function Modal({ listTitle, emoji }) {
                 {emoji !== undefined ? <p className="mr-3">{emoji}</p> : ""}
                 <p className="">{listTitle}</p>
               </div>
-              
-              <div className="borer-t border-gray-400">
-                동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라만세 무궁화 삼천리 화려강산 대한사람 대한으로 길이 보전하세
+
+              <div className="border-t-2 mt-5 border-gray-400">
+                동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라만세
+                무궁화 삼천리 화려강산 대한사람 대한으로 길이 보전하세 동해물과
+                백두산이 마르고 닳도록 하느님이 보우하사 우리나라만세 무궁화
+                삼천리 화려강산 대한사람 대한으로 길이 보전하세 동해물과
+                백두산이 마르고 닳도록 하느님이 보우하사 우리나라만세 무궁화
+                삼천리 화려강산 대한사람 대한으로 길이 보전하세 동해물과
+                백두산이 마르고 닳도록 하느님이 보우하사 우리나라만세 무궁화
+                삼천리 화려강산 대한사람 대한으로 길이 보전하세 동해물과
+                백두산이 마르고 닳도록 하느님이 보우하사 우리나라만세 무궁화
+                삼천리 화려강산 대한사람 대한으로 길이 보전하세
               </div>
             </div>
           </div>
@@ -29,3 +41,5 @@ export default function Modal({ listTitle, emoji }) {
     </>
   );
 }
+
+
