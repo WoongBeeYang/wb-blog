@@ -14,7 +14,7 @@ export interface GetlistResult {
   created_by : Time
   last_edited_by : Time
   cover : Cover
-  icon : string
+  icon : Icon
   parent : Parent
   archived : boolean
   properties : Properties
@@ -29,6 +29,11 @@ export interface Cover {
   type : string
   external? : External | null
   file? : External
+}
+
+export interface Icon {
+  type : string
+  emoji : string
 }
 
 export interface External {

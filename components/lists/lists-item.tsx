@@ -10,6 +10,8 @@ export default function ListsItem({ data }) {
   const last_edited_time = notion.last_edited_time.split("T");
   const notion_cover_img = notion.cover.file?.url || notion.cover.external.url;
   const tag = notion.properties.태그.multi_select;
+  const emoji = notion.icon?.emoji
+  console.log(emoji)
 
   const [modal, setModal] = useState(false);
 
@@ -17,11 +19,10 @@ export default function ListsItem({ data }) {
     setModal(!modal);
   };
 
-  console.log(notion);
   return (
     <div onClick={loadModal}>
-      {modal === true ? <Modal listTitle={listTitle}/> : ""}
-      <div className="flex flex-col dark:bg-slate-400 p-3 bg-gray-300 mt-3 rounded-md hover:scale-105">
+      {modal === true ? <Modal listTitle={listTitle} emoji={emoji}/> : ""}
+      <div className="flex flex-col dark:bg-slate-400 p-3 bg-gray-300 mt-3 rounded-md hover:scale-105 h-full">
         <Image
           width="500px"
           height="700px"
