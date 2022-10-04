@@ -2,6 +2,19 @@ import { TOKEN } from "../config";
 
 export default function Modal({ listTitle, emoji, url}) {
   
+   const options = {
+    method: 'GET',
+    headers: {
+      accept: 'application/json',
+      'Notion-Version': '2022-06-28',
+      authorization: `Bearer ${TOKEN}`
+    }
+  };
+  
+   fetch(`https://api.notion.com/v1/blocks/${url}/children?page_size=100`, options)
+     .then(response => response.json())
+     .then(response => console.log(response))
+     .catch(err => console.error(err));
   
   return (
     <>

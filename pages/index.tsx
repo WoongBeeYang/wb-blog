@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="bg-[#F5D08A]">
+    <div className="">
       <Layout>
         <Head>
           <title>웅비의 블로그</title>

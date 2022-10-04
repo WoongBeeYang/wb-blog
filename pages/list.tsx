@@ -17,9 +17,9 @@ export default function List({ notion }) {
         필기 내용
       </p>
 
-      <div className="grid xl:grid-cols-2 grid-cols-1 w-3/4 mx-auto gap-5">
+      <div className="grid xl:grid-cols-2 grid-cols-1 w-3/4 mx-auto gap-7">
         {data.results.map((notion: GetlistResult) => (
-          <ListsItem data={notion} key={notion.id} page_data={undefined} />
+          <ListsItem data={notion} key={notion.id} />
         ))}
       </div>
     </Layout>
