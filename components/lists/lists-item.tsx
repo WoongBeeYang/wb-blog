@@ -1,5 +1,7 @@
 import Image from "next/image";
+import { useState } from "react";
 import { GetlistResult } from "../../TypeScript/listType";
+import Modal from "../modal";
 
 export default function ListsItem({ data }) {
   const notion: GetlistResult = data;
@@ -9,24 +11,36 @@ export default function ListsItem({ data }) {
   const notion_cover_img = notion.cover.file?.url || notion.cover.external.url;
   const tag = notion.properties.태그.multi_select;
 
-  console.log(notion)
+  const [modal, setModal] = useState(false);
+
+  const loadModal = () => {
+    setModal(!modal);
+  };
+
+  console.log(notion);
   return (
-    <div className="flex flex-col dark:bg-slate-400 p-3 bg-gray-300 mt-3 rounded-md hover:scale-105">
-      <Image
-        width="500px"
-        height="700px"
-        src={notion_cover_img}
-        alt="Cover Image"
-      />
-      <span className="text-xl">{listTitle}</span>
-      <span>생성 시간 : {created_time[0]}</span>
-      <span>최종 수정 시간 : {last_edited_time[0]}</span>
-      <div className="flex items-start mt-2">
-        {tag.map((tags) => (
-          <span key={tags.id} className="px-2 py-1 mr-2 rounded-md bg-sky-400">
-            {tags.name}
-          </span>
-        ))}
+    <div onClick={loadModal}>
+      {modal === true ? <Modal listTitle={listTitle}/> : ""}
+      <div className="flex flex-col dark:bg-slate-400 p-3 bg-gray-300 mt-3 rounded-md hover:scale-105">
+        <Image
+          width="500px"
+          height="700px"
+          src={notion_cover_img}
+          alt="Cover Image"
+        />
+        <span className="text-xl">{listTitle}</span>
+        <span>생성 시간 : {created_time[0]}</span>
+        <span>최종 수정 시간 : {last_edited_time[0]}</span>
+        <div className="flex items-start mt-2">
+          {tag.map((tags) => (
+            <span
+              key={tags.id}
+              className="px-2 py-1 mr-2 rounded-md bg-sky-400"
+            >
+              {tags.name}
+            </span>
+          ))}
+        </div>
       </div>
     </div>
   );
