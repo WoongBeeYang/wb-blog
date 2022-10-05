@@ -1,8 +1,8 @@
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useState } from "react";
-import { TOKEN } from "../../config";
 import { GetlistResult } from "../../TypeScript/listType";
-import Modal from "../modal";
+
 
 export default function ListsItem({ data }) {
   const notion: GetlistResult = data;
@@ -13,42 +13,42 @@ export default function ListsItem({ data }) {
   const tag = notion.properties.태그.multi_select;
   const emoji = notion.icon?.emoji;
   const url = notion.url.substring(22);
-  
 
-  const [modal, setModal] = useState(false);
+  // const [modal, setModal] = useState(false);
 
-  const loadModal = () => {
-    setModal(!modal);
-  };
+  // const loadModal = () => {
+  //   setModal(!modal);
+  // };
 
   return (
-    <div onClick={loadModal}>
-      {modal === true ? (
-        <Modal listTitle={listTitle} emoji={emoji} url={url} />
-      ) : (
-        ""
-      )}
+    <div>
+      <Link href={{
+        pathname: 'listSibar',
+        query: {data : 1}
+      }}>
+
       <div className="flex flex-col dark:bg-[#121212] p-3 bg-[#dee2e6] mt-3 rounded-md hover:scale-105 h-full shadow-xl">
         <Image
           width="500px"
           height="500px"
           src={notion_cover_img}
           alt="Cover Image"
-        />
+          />
         <span className="text-xl">{listTitle}</span>
         <span>생성 시간 : {created_time[0]}</span>
         <span>최종 수정 시간 : {last_edited_time[0]}</span>
         <div className="flex items-start mt-2">
           {tag.map((tags) => (
             <span
-              key={tags.id}
-              className="px-2 py-1 mr-2 rounded-md bg-sky-400"
+            key={tags.id}
+            className="px-2 py-1 mr-2 rounded-md bg-sky-400"
             >
               {tags.name}
             </span>
           ))}
         </div>
       </div>
+          </Link>
     </div>
   );
 }

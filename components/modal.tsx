@@ -1,21 +1,8 @@
 import { TOKEN } from "../config";
 
-export default function Modal({ listTitle, emoji, url}) {
+export default function Modal({ listTitle, emoji}) {
   
-   const options = {
-    method: 'GET',
-    headers: {
-      accept: 'application/json',
-      'Notion-Version': '2022-06-28',
-      authorization: `Bearer ${TOKEN}`
-    }
-  };
-  
-   fetch(`https://api.notion.com/v1/blocks/${url}/children?page_size=100`, options)
-     .then(response => response.json())
-     .then(response => console.log(response))
-     .catch(err => console.error(err));
-  
+   
   return (
     <>
       <div
@@ -55,4 +42,19 @@ export default function Modal({ listTitle, emoji, url}) {
   );
 }
 
-
+export async function getStaticProps(){
+  const blcokOptions = {
+    method: "GET",
+    headers: {
+      accept: "application/json",
+      "Notion-Version": "2022-06-28",
+      authorization: `Bearer ${TOKEN}`,
+    },
+    
+  };
+  const sibar = await fetch(`https://api.notion.com/v1/blocks/f8722fcadb444a3fb0fea7cb86d9c763/children?page_size=100`, blcokOptions);
+  const haha = await sibar.json();
+  console.log(haha)
+}
+  
+  
