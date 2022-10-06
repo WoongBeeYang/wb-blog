@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
 import { GetlistResult } from "../../TypeScript/listType";
 
 export default function ListsItem({ data }) {
@@ -11,7 +10,7 @@ export default function ListsItem({ data }) {
   const notion_cover_img = notion.cover.file?.url || notion.cover.external.url;
   const tag = notion.properties.태그.multi_select;
   const emoji = notion.icon?.emoji;
-  const url = notion.url.substring(22);
+  
 
   // const [modal, setModal] = useState(false);
 
