@@ -50,6 +50,38 @@ export interface Properties {
   태그 : Tag
   Status : Status
   이름 : Properties_Name
+  tag : Tag
+  Description : Description
+  Youtube: Description
+  Github : Description
+  Result : Description
+}
+export interface Description {
+  id: string
+  type:string
+  rich_text: Rich_text[]
+}
+
+export interface Rich_text{
+  type:string
+  text: Rich_textType
+  annotations: Annotations
+  plain_text:string
+  href?: string
+}
+
+export interface Annotations{
+  bold : boolean | string
+  italic : boolean
+  strikethrough : boolean
+  underline : boolean
+  code : boolean
+  color : string
+}
+
+export interface Rich_textType{
+  content:string
+  link?:string
 }
 
 export interface Tag {
