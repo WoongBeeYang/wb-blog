@@ -5,9 +5,8 @@ import { PORTFOLIO_ID, TOKEN } from "../config";
 import PortfolioList from "../components/lists/portfolio-list";
 import { data } from "autoprefixer";
 
-export default function portfolio({portfolio}) {
-  
-
+export default function portfolio({ portfolio }) {
+  console.log(portfolio.results);
   return (
     <>
       <Layout>
@@ -15,7 +14,11 @@ export default function portfolio({portfolio}) {
           <title>웅비의 포트폴리오</title>
           <meta name="description" content="웅비의 블로그" />
         </Head>
-        {portfolio.results.map((item) => (<PortfolioList data={item} key={item.id}/>))}
+        <div>
+          {portfolio.results.map((item) => (
+            <PortfolioList data={item} key={item.id} />
+          ))}
+        </div>
       </Layout>
     </>
   );
@@ -47,7 +50,7 @@ export async function getStaticProps() {
     options
   );
 
-  const portfolio: Getlist = await res.json();
+  const portfolio = await res.json();
 
   return {
     props: { portfolio },

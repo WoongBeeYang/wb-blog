@@ -7,6 +7,7 @@ export default function PortfolioList({data}) {
 
   return (
     <>
+    안녕하신가.
     {gitUrl}
     </>
   )
