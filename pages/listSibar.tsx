@@ -3,8 +3,8 @@ import { TOKEN } from "../config";
 export default function listSibar({data, haha}) {
   
   const notion_block = haha.results
-  console.log(data)
-  console.log(notion_block)
+  
+  
   return(
     <>
     
