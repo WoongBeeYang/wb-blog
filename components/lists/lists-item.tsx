@@ -32,17 +32,17 @@ export default function ListsItem({ data }) {
           src={notion_cover_img}
           alt="Cover Image"
         />
-        <span className="text-xl">{listTitle}</span>
-        <span>생성 시간 : {created_time[0]}</span>
-        <span>최종 수정 시간 : {last_edited_time[0]}</span>
+        <p className="text-xl">{listTitle}</p>
+        <p>생성 시간 : {created_time[0]}</p>
+        <p>최종 수정 시간 : {last_edited_time[0]}</p>
         <div className="flex items-start mt-2">
           {tag.map((tags) => (
-            <span
+            <p
               key={tags.id}
               className="px-2 py-1 mr-2 rounded-md bg-sky-400"
             >
               {tags.name}
-            </span>
+            </p>
           ))}
         </div>
       </div>

@@ -1,8 +1,9 @@
 import { ThemeProvider } from "next-themes";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { GetlistResult } from "../../TypeScript/listType";
+import Modal from "../modal";
 
 export default function PortfolioList({ data }) {
   const notion: GetlistResult = data;
@@ -13,16 +14,22 @@ export default function PortfolioList({ data }) {
   const notion_cover_img = notion.cover.file?.url || notion.cover.external.url;
   const tag = notion.properties.태그.multi_select;
   const emoji = notion.icon?.emoji;
+  const [modal, setModal] = useState(false);
 
+  const loadModal = () => {
+    setModal(!modal);
+  };
+  
   return (
-    <div>
+    <div onClick={loadModal}> 
+        {modal === true ? <Modal youTube={youTube} gitHub={gitHub} emoji={emoji} listTitle={listTitle} description={description}/> : ""}
       <div className="flex flex-col dark:bg-[#121212] p-3 bg-[#dee2e6] mt-3 rounded-md hover:scale-105 h-full shadow-xl">
         <Image
           width="500px"
           height="500px"
           src={notion_cover_img}
           alt="Cover Image"
-        />
+          />
         <div className="my-1">
           <p className="text-2xl">
             {emoji} {listTitle}
@@ -60,7 +67,7 @@ export default function PortfolioList({ data }) {
         </div>
         <div className="flex items-start mt-2">
           {tag.map((tags) => (
-            <p key={tags.id} className="px-2 py-1 mr-2 rounded-md bg-sky-400">
+            <p key={tags.id} className={`px-2 py-1 mr-2 rounded-md bg-blue-400 bg-${tags.color}-400`}>
               {tags.name}
             </p>
           ))}
