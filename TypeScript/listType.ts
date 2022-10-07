@@ -35,8 +35,13 @@ export interface Cover {
 export interface Icon {
   type : string
   emoji : string
+  file : Icon_File
 }
 
+export interface Icon_File {
+  url : string
+  expiry_time : string
+}
 export interface External {
   url? : string | null
 }

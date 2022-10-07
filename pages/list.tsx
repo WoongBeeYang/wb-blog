@@ -3,10 +3,10 @@ import Head from "next/head";
 import { TOKEN, DATABASE_ID } from "../config";
 import ListsItem from "../components/lists/lists-item";
 import { Getlist, GetlistResult } from "../TypeScript/listType";
+import Link from "next/link";
 
 export default function List({ notion }) {
   const data: Getlist = notion;
-
   return (
     <Layout>
       <Head>

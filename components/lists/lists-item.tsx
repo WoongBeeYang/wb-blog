@@ -10,41 +10,41 @@ export default function ListsItem({ data }) {
   const notion_cover_img = notion.cover.file?.url || notion.cover.external.url;
   const tag = notion.properties.태그.multi_select;
   const emoji = notion.icon?.emoji;
-  
-
-  // const [modal, setModal] = useState(false);
-
-  // const loadModal = () => {
-  //   setModal(!modal);
-  // };
+  const file_emoji = notion.icon?.file?.url;
+  const notion_url = notion.url
 
   return (
-    <div>
-      {/* <Link href={{
-        pathname: 'listSibar',
-        query: {data : 1}
-      }}> */}
-
-      <div className="flex flex-col dark:bg-[#121212] p-3 bg-[#dee2e6] mt-3 rounded-md hover:scale-105 h-full shadow-xl">
-        <Image
-          width="500px"
-          height="500px"
-          src={notion_cover_img}
-          alt="Cover Image"
-        />
-        <p className="text-xl">{listTitle}</p>
-        <p>생성 시간 : {created_time[0]}</p>
-        <p>최종 수정 시간 : {last_edited_time[0]}</p>
-        <div className="flex items-start mt-2">
-          {tag.map((tags) => (
-            <p
-              key={tags.id}
-              className="px-2 py-1 mr-2 rounded-md bg-sky-400"
-            >
-              {tags.name}
-            </p>
-          ))}
-        </div>
+    <div className="flex flex-col dark:bg-[#121212] p-3 bg-[#dee2e6] mt-3 rounded-md hover:scale-105 h-full shadow-xl">
+      <Image
+        width="500px"
+        height="500px"
+        src={notion_cover_img}
+        alt="Cover Image"
+      />
+      <p className="text-xl">
+        {emoji === undefined ? (
+          file_emoji !== undefined ? (
+            <Image width="20px" height="20px" src={file_emoji} />
+          ) : (
+            ""
+          )
+        ) : (
+          emoji
+        )}{" "}
+        {listTitle}
+      </p>
+      <p>생성 시간 : {created_time[0]}</p>
+      <p>최종 수정 시간 : {last_edited_time[0]}</p>
+           
+      <div className="flex items-start mt-2">
+        {tag.map((tags) => (
+          <p
+          key={tags.id}
+          className={`p-1 sm:p-2 mr-2 sm:text-base text-sm rounded-md bg-${tags.color}-400`}
+          >
+            {tags.name}
+          </p>
+        ))}
       </div>
     </div>
   );

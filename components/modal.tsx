@@ -19,7 +19,7 @@ export default function Modal({
 
         <div className="fixed inset-0 z-10 overflow-y-auto text-black">
           <div className="flex min-h-full justify-center p-4 text-center items-center sm:p-0">
-            <div className="bg-white sm:w-[800px] sm:h-[300px] w-[400px] h-[300px]">
+            <div className="bg-[#f8f9fa] dark:bg-[#282828] dark:text-white sm:w-[600px] sm:h-[300px] w-[400px] h-[300px]">
               {/* 제목 */}
               <div className="flex justify-center font-bold sm:text-3xl mt-5 text-x">
                 <p className="text-2xl">
@@ -33,10 +33,10 @@ export default function Modal({
                   <p className="sm:text-lg text-sm">{description}</p>
                 </div>
 
-                <div className="flex justify-center gap-5">
+                <div className="flex justify-center gap-5 mt-10">
                   {/* GitHub Btn */}
                   <Link href={gitHub}>
-                    <div className="flex border p-3 hover:cursor-pointer">
+                  <div className="flex p-3 hover:cursor-pointer hover:dark:bg-gray-400 hover:underline hover:bg-[#484848] dark:bg-[#121212] bg-[#dee2e6]">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="24"
@@ -52,22 +52,22 @@ export default function Modal({
 
                   {/* YouTube Btn */}
                   <Link href={youTube}>
-                  <div className="flex border p-3 hover:cursor-pointer">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      className="mr-3"
+                    <div className="flex p-3 hover:cursor-pointer hover:dark:bg-gray-400 hover:underline hover:bg-[#484848] dark:bg-[#121212] bg-[#dee2e6]">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        className="mr-3"
                       >
-                      <path
-                        fill="red"
-                        d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.441 16.892c-2.102.144-6.784.144-8.883 0-2.276-.156-2.541-1.27-2.558-4.892.017-3.629.285-4.736 2.558-4.892 2.099-.144 6.782-.144 8.883 0 2.277.156 2.541 1.27 2.559 4.892-.018 3.629-.285 4.736-2.559 4.892zm-6.441-7.234l4.917 2.338-4.917 2.346v-4.684z"
+                        <path
+                          fill="red"
+                          d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.441 16.892c-2.102.144-6.784.144-8.883 0-2.276-.156-2.541-1.27-2.558-4.892.017-3.629.285-4.736 2.558-4.892 2.099-.144 6.782-.144 8.883 0 2.277.156 2.541 1.27 2.559 4.892-.018 3.629-.285 4.736-2.559 4.892zm-6.441-7.234l4.917 2.338-4.917 2.346v-4.684z"
                         />
-                    </svg>
-                    <button>Youtube로 이동</button>
-                  </div>
-                        </Link>
+                      </svg>
+                      <button>Youtube로 이동</button>
+                    </div>
+                  </Link>
                 </div>
               </div>
             </div>
