@@ -1,9 +1,8 @@
 import Layout from "../components/layout";
 import Head from "next/head";
-import { Getlist, GetlistResult } from "../TypeScript/listType";
 import { PORTFOLIO_ID, TOKEN } from "../config";
 import PortfolioList from "../components/lists/portfolio-list";
-import { data } from "autoprefixer";
+
 
 export default function portfolio({ portfolio }) {
   

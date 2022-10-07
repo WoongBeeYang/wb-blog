@@ -8,7 +8,7 @@ import Modal from "../modal";
 export default function PortfolioList({ data }) {
   const notion: GetlistResult = data;
   const listTitle = notion.properties.이름.title[0]?.plain_text || "제목 없음";
-  const description = notion.properties.Description.rich_text[0].plain_text;
+  const description = notion.properties.Description.rich_text[0]?.plain_text;
   const gitHub = notion.properties.Github.rich_text[0].text.content;
   const youTube = notion.properties.Youtube.rich_text[0].text.content;
   const notion_cover_img = notion.cover.file?.url || notion.cover.external.url;
