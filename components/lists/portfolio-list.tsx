@@ -1,16 +1,14 @@
-import { ThemeProvider } from "next-themes";
 import Image from "next/image";
-import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { GetlistResult } from "../../TypeScript/listType";
-import Modal from "../modal";
+import PortfolioModal from "../modal/portfolio-modal";
 
 export default function PortfolioList({ data }) {
   const notion: GetlistResult = data;
   const listTitle = notion.properties.이름.title[0]?.plain_text || "제목 없음";
   const description = notion.properties.Description.rich_text[0]?.plain_text;
   const gitHub = notion.properties.Github.rich_text[0].text.content;
-  const youTube = notion.properties.Youtube.rich_text[0].text.content;
+  const youTube = notion.properties.Youtube.rich_text[0]?.text.content || "";
   const notion_cover_img = notion.cover.file?.url || notion.cover.external.url;
   const tag = notion.properties.태그.multi_select;
   const emoji = notion.icon?.emoji || notion.icon?.file.url;
@@ -24,7 +22,7 @@ export default function PortfolioList({ data }) {
     <div className="flex">
       <div onClick={loadModal}>
         {modal === true ? (
-          <Modal
+          <PortfolioModal
             youTube={youTube}
             gitHub={gitHub}
             emoji={emoji}
@@ -36,8 +34,8 @@ export default function PortfolioList({ data }) {
         )}
         <div className="flex flex-col dark:bg-[#121212] justify-center p-3 bg-[#dee2e6] my-3 rounded-md hover:scale-105 h-full shadow-xl">
           <Image
-            width="700px"
-            height="500px"
+            width="900px"
+            height="600px"
             src={notion_cover_img}
             alt="Cover Image"
           />
@@ -80,7 +78,7 @@ export default function PortfolioList({ data }) {
               {tag.map((tags) => (
                 <p
                   key={tags.id}
-                  className={`p-1 sm:p-2 mr-2 sm:text-base text-sm rounded-md bg-${tags.color}-400`}
+                  className={`p-1 sm:p-2 mr-2 sm:text-base text-sm rounded-md bg-blue-400`}
                 >
                   {tags.name}
                 </p>

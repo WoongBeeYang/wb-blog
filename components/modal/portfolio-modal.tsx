@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export default function Modal({
+export default function PortfolioModal({
   youTube,
   gitHub,
   listTitle,

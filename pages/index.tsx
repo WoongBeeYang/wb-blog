@@ -28,8 +28,6 @@ export default function Home() {
               </h1>
               <p className="mb-8 leading-relaxed">
                 Next.js, TypeScript, Notion API를 활용한 저만의 블로그 입니다.
-                아직 미완성 됬습니다 ㅠㅠ...
-                빠른시일내에 완성하도록 하겠읍니다.... 퓨퓨
               </p>
               <div className="flex justify-center">
                 <Link href="/introduce">
