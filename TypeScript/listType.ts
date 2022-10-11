@@ -57,9 +57,15 @@ export interface Properties {
   이름 : Properties_Name
   tag : Tag
   Description : Description
-  Youtube: Description
-  Github : Description
-  Result : Description
+  Youtube: URL
+  Github : URL
+  Result : URL
+}
+
+export interface URL {
+  id : string
+  type : string
+  url : string
 }
 export interface Description {
   id: string
