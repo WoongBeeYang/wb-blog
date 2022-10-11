@@ -1,6 +1,6 @@
 import { TOKEN } from "../config";
 
-export default function listSibar({data, haha}) {
+export default function blocklist({data, haha}) {
   
   const notion_block = haha.results
   

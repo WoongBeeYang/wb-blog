@@ -28,6 +28,9 @@ export default function Home() {
               </h1>
               <p className="mb-8 leading-relaxed">
                 Next.js, TypeScript, Notion API를 활용한 저만의 블로그 입니다.
+                노션 api 에서 받아온 데이터를 좀더 유용하게 가공하기위해 인터넷 강의 수강중입니다.
+                위의 사유로 인해 잠시 블로그 개발을 중단합니다.
+                
               </p>
               <div className="flex justify-center">
                 <Link href="/introduce">
