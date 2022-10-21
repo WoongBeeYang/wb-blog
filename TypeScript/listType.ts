@@ -19,8 +19,13 @@ export interface GetlistResult {
   archived : boolean
   properties : Properties
   url : string
+  callout : Callout
 }
 
+export interface Callout {
+  icon : Icon
+  rich_text:Rich_text
+}
 export interface Time {
   object : string
   id :  string

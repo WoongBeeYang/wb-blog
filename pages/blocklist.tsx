@@ -1,9 +1,10 @@
 import { TOKEN } from "../config";
+import { GetlistResult } from "../TypeScript/listType";
 
 export default function blocklist({data, haha}) {
   
-  const notion_block = haha.results
-  
+  const notion_block:GetlistResult = haha.results
+  console.log(notion_block);
   
   return(
     <>
