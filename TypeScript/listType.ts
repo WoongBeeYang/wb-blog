@@ -17,9 +17,16 @@ export interface GetlistResult {
   icon : Icon
   parent : Parent
   archived : boolean
+  file: PDF_File
   properties : Properties
   url : string
   callout : Callout
+}
+
+export interface PDF_File{
+  caption : string[]
+  file : Icon_File
+  type : string
 }
 
 export interface Callout {
