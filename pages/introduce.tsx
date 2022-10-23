@@ -7,7 +7,7 @@ export default function introduce({ data }) {
   const page_block: GetlistResult = data.results;
   const introduce_file = page_block[8].file.file.url;
 
-  console.log(page_block);
+  
   const resolution = [];
 
   for (let i = 2; i < 7; i++) {
