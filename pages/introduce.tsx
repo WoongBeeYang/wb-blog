@@ -10,6 +10,7 @@ export default function introduce({ data }) {
   
   const resolution = [];
 
+  //맘에 안들어서 수정할 방법 생각해야함.
   for (let i = 2; i < 7; i++) {
     resolution[i] =
       page_block[i].callout.icon.emoji +
