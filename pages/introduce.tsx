@@ -1,22 +1,24 @@
 import Layout from "../components/layout";
 import Head from "next/head";
-import { TOKEN } from "../config";
+import { TOKEN,INTRODUCE } from "../config";
 import { GetlistResult } from "../TypeScript/listType";
-import Link from "next/link";
+
 
 export default function introduce({ data }) {
   const page_block: GetlistResult = data.results;
   const introduce_file = page_block[8].file.file.url;
-  console.log(introduce_file);
+  
   console.log(page_block);
   const resolution = [];
 
   for (let i = 2; i < 7; i++) {
     resolution[i] =
-      page_block[i].callout.icon.emoji +
-      "    " +
-      page_block[i].callout.rich_text[0].plain_text;
+    page_block[i].callout.icon.emoji +
+    "    " +
+    page_block[i].callout.rich_text[0].plain_text;
   }
+
+
 
   return (
     <>
@@ -77,7 +79,7 @@ export async function getStaticProps({}) {
     },
   };
   const sibar = await fetch(
-    `https://api.notion.com/v1/blocks/ccb151f7fbcf409985ba1ab526ce4a3a/children?page_size=100`,
+    `https://api.notion.com/v1/blocks/${INTRODUCE}/children?page_size=100`,
     blcokOptions
   );
   const data = await sibar.json();
