@@ -87,7 +87,7 @@ export default function introduce({
   rootPageId?: string;
   rootDomain?: string;
 }) {
-  const router = useRouter();
+
 
   if (!recordMap) {
     return null;
@@ -105,14 +105,11 @@ export default function introduce({
     g.block = block;
   }
 
-  const socialDescription = "React Notion X Demo";
-  const socialImage =
-    "https://react-notion-x-demo.transitivebullsh.it/social.jpg";
   return (
     <>
       <Layout>
         <Head>
-          <title>자기소개</title>
+          <title>{title}</title>
           <meta name="description" content="웅비의 블로그" />
         </Head>
         <div className="dark:text-white">
