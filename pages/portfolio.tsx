@@ -3,20 +3,25 @@ import Head from "next/head";
 import { PORTFOLIO_ID, TOKEN } from "../config";
 import PortfolioList from "../components/lists/portfolio-list";
 
-
 export default function portfolio({ portfolio }) {
-  
   return (
     <>
       <Layout>
         <Head>
-          <title>웅비의 포트폴리오</title>
+          <title>웅비의 프로젝트</title>
           <meta name="description" content="웅비의 블로그" />
         </Head>
-        <div className="grid xl:grid-cols-2 grid-cols-1 w-3/4 mx-auto gap-7">
-          {portfolio.results.map((item) => (
-            <PortfolioList data={item} key={item.id} />
-          ))}
+        <div className="my-10">
+          <div>
+          <p className="text-4xl text-center my-5 font-bold text-black dark:text-white">
+            프로젝트 내용
+          </p>
+          </div>
+          <div className="grid xl:grid-cols-2 grid-cols-1 w-3/4 mx-auto gap-7">
+            {portfolio.results.map((item) => (
+              <PortfolioList data={item} key={item.id} />
+            ))}
+          </div>
         </div>
       </Layout>
     </>

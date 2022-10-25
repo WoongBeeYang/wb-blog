@@ -7,20 +7,25 @@ import Link from "next/link";
 
 export default function List({ notion }) {
   const data: Getlist = notion;
+
   return (
     <Layout>
       <Head>
         <title>필기 내용</title>
         <meta name="description" content="웅비의 블로그" />
       </Head>
-      <p className="text-4xl text-center my-5 font-bold text-black dark:text-white">
-        필기 내용
-      </p>
+      <div className="my-10">
+        <div>
+          <p className="text-4xl text-center my-5 font-bold text-black dark:text-white">
+            필기 내용
+          </p>
+        </div>
 
-      <div className="grid xl:grid-cols-2 grid-cols-1 w-3/4 mx-auto gap-7">
-        {data.results.map((notion: GetlistResult) => (
-          <ListsItem data={notion} key={notion.id} />
-        ))}
+        <div className="grid xl:grid-cols-2 grid-cols-1 w-3/4 mx-auto gap-7">
+          {data.results.map((notion: GetlistResult) => (
+            <ListsItem data={notion} key={notion.id} />
+          ))}
+        </div>
       </div>
     </Layout>
   );

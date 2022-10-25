@@ -10,6 +10,7 @@ import TweetEmbed from "react-tweet-embed";
 import { ExtendedRecordMap } from "notion-types";
 import { useRouter } from "next/router";
 import { getPageTitle } from "notion-utils";
+import { useTheme } from "next-themes";
 
 const Code = dynamic(() =>
   import("react-notion-x/build/third-party/code").then(async (m) => {
@@ -55,21 +56,6 @@ const Collection = dynamic(() =>
     (m) => m.Collection
   )
 );
-const Equation = dynamic(() =>
-  import("react-notion-x/build/third-party/equation").then((m) => m.Equation)
-);
-const Pdf = dynamic(
-  () => import("react-notion-x/build/third-party/pdf").then((m) => m.Pdf),
-  {
-    ssr: false,
-  }
-);
-const Modal = dynamic(
-  () => import("react-notion-x/build/third-party/modal").then((m) => m.Modal),
-  {
-    ssr: false,
-  }
-);
 
 const Tweet = ({ id }: { id: string }) => {
   return <TweetEmbed tweetId={id} />;
@@ -87,15 +73,23 @@ export default function Introduce({
   rootDomain?: string;
 }) {
   const router = useRouter();
+  const {theme, setTheme} = useTheme();
+  let bgColor:boolean;
 
   if (!recordMap) {
     return null;
   }
 
-  const title = getPageTitle(recordMap);
   
+    if(theme === 'light') {
+      bgColor = false
+    } else {
+      bgColor = true
+    }
+  
+  const title = getPageTitle(recordMap);
+  console.log(title, recordMap);
 
-  // useful for debugging from the dev console
   if (typeof window !== "undefined") {
     const keys = Object.keys(recordMap?.block || {});
     const block = recordMap?.block?.[keys[0]]?.value;
@@ -115,19 +109,14 @@ export default function Introduce({
           <NotionRenderer
             recordMap={recordMap}
             fullPage={true}
-            darkMode={true}
-            rootDomain={rootDomain}
-            rootPageId={rootPageId}
+            darkMode={bgColor}
+            rootDomain={"www.naver.com"}
+            rootPageId={"www.naver.com"}
             previewImages={previewImagesEnabled}
             components={{
               nextImage: Image,
               nextLink: Link,
-              Code,
               Collection,
-              Equation,
-              Pdf,
-              Modal,
-              Tweet,
             }}
           />
         </div>

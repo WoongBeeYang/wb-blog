@@ -33,7 +33,7 @@ export default function Header() {
             </Link>
 
             <Link href="/portfolio">
-              <a className="mr-5 hover:text-gray-900 dark:text-gray-300 dark:hover:text-red-600">포트폴리오</a>
+              <a className="mr-5 hover:text-gray-900 dark:text-gray-300 dark:hover:text-red-600">프로젝트</a>
             </Link>
           </nav>
           {/* 다크모드 토글버튼 작업 넣기 */}
