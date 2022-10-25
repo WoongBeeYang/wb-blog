@@ -1,7 +1,6 @@
 import Layout from "../components/layout";
 import Head from "next/head";
-import { TOKEN, INTRODUCE } from "../config";
-import { GetlistResult } from "../TypeScript/listType";
+import { INTRODUCE } from "../config";
 import { NotionAPI } from "notion-client";
 import { NotionRenderer } from "react-notion-x";
 import Image from "next/image";
@@ -76,7 +75,7 @@ const Tweet = ({ id }: { id: string }) => {
   return <TweetEmbed tweetId={id} />;
 };
 
-export default function introduce({
+export default function Introduce({
   recordMap,
   previewImagesEnabled,
   rootPageId,
@@ -87,7 +86,7 @@ export default function introduce({
   rootPageId?: string;
   rootDomain?: string;
 }) {
-
+  const router = useRouter();
 
   if (!recordMap) {
     return null;
